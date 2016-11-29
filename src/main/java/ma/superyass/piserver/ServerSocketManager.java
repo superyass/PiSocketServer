@@ -17,7 +17,6 @@ public class ServerSocketManager {
 
         if (serverRunner == null || (serverRunner!= null && !serverRunner.isAlive())) {
             serverRunner = new SocketServer(this, PORT);
-            serverRunner = new SocketServer(this, PORT);
             serverRunner.start();
             return true;
         }else{

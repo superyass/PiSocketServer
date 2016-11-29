@@ -6,7 +6,6 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.net.SocketImpl;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -23,13 +22,11 @@ public class SocketServer extends Thread{
 
     ServerSocketManager serverSocketManager;
 
-    boolean flag;
-    private int port;
+    private static int PORT;
 
     public SocketServer(ServerSocketManager manager, int port) {
         serverSocketManager = manager;
-        this.port = port;
-        flag = true;
+        this.PORT = port;
     }
 
     //accept only one client
@@ -37,7 +34,7 @@ public class SocketServer extends Thread{
     public void run() {
         try {
             //Listen on port
-            serverSocket = new ServerSocket(port);
+            serverSocket = new ServerSocket(PORT);
             do {
                 //Get connection
                 System.out.println("Waiting for the client...");
@@ -55,20 +52,20 @@ public class SocketServer extends Thread{
                 clientSock.close();
                 System.out.println("thread");
 
-            } while (flag);
+            } while (true);
 
         } catch (IOException ex) {
             Logger.getLogger(SocketServer.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-    private void sendData(String toSend) throws IOException {
-        pw = new PrintWriter(clientSock.getOutputStream());
-        pw.write(toSend);
-        pw.write('\n');
-        pw.flush();
-
-    }
+//    private void sendData(String toSend) throws IOException {
+//        pw = new PrintWriter(clientSock.getOutputStream());
+//        pw.write(toSend);
+//        pw.write('\n');
+//        pw.flush();
+//
+//    }
 
     public Socket getClientSock() {
         return clientSock;
