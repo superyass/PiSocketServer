@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="454.0" prefWidth="479.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ma.superyass.piserver.FXMLController">
+    <children>
+        <Label fx:id="label" layoutX="6.0" layoutY="58.0" minHeight="16" minWidth="69" prefHeight="17.0" prefWidth="471.0" text="NO MESSAGE YET" textAlignment="CENTER" />
+      <LineChart fx:id="chart" layoutX="88.0" layoutY="118.0" prefHeight="295.0" prefWidth="304.0">
+        <xAxis>
+          <CategoryAxis side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis side="LEFT" />
+        </yAxis>
+      </LineChart>
+    </children>
+</AnchorPane>
